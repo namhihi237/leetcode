@@ -11,11 +11,14 @@ func isValid(s string) bool {
 		case "(", "[", "{":
 			stack = append(stack, string(s[i]))
 		default:
-			if len(stack) == 0 || stack[len(stack)-1] != object[string(s[i])] {
+			if len(stack) == 0 {
 				return false
-			} else {
+			} else if stack[len(stack)-1] == object[string(s[i])] {
 				stack = stack[:len(stack)-1]
+			} else {
+				return false
 			}
+
 		}
 	}
 	return len(stack) == 0

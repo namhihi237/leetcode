@@ -1,22 +1,11 @@
-import (
-	"strconv"
-)
-
 func singleNumber(nums []int) int {
-	obj := make(map[string]bool)
-	result := 0
-	for _, n := range nums {
-		numberString := strconv.Itoa(n)
-		if _, ok := obj[numberString]; ok {
-			delete(obj, numberString)
-		} else {
-			obj[numberString] = true
-		}
+	if len(nums) == 0 {
+		return 0
 	}
 
-	for k := range obj {
-		result, _ = strconv.Atoi(k)
+	result := nums[0]
+	for i := 1; i < len(nums); i++ {
+		result = result ^ nums[i]
 	}
-
 	return result
 }

@@ -1,17 +1,3 @@
-func firstUniqChar(s string) int {
-	fmt.Println('c' - 'a')
-	t := make([]int, 26)
-	fmt.Println(t)
-	for _, v := range s {
-		t[v-'a']++
-	}
-	for i, v := range s {
-		if t[v-'a'] == 1 {
-			return i
-		}
-	}
-	return -1
-}
 
 func plusOne(digits []int) []int {
 	r := 0

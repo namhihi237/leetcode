@@ -3,14 +3,10 @@
  * @return {number}
  */
 var singleNumber = function (nums) {
-  let obj = {};
-  for (let i = 0; i < nums.length; i++) {
-    if (obj.hasOwnProperty(nums[i])) {
-      delete obj[nums[i]];
-    } else {
-      obj[nums[i]] = true
-    }
+  if (nums.length === 0) return 0;
+  let result = nums[0];
+  for (var i = 1; i < nums.length; i++) {
+    result ^= nums[i];
   }
-
-  return +Object.keys(obj)[0]
+  return result;
 };

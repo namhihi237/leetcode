@@ -1,18 +1,7 @@
 func reverseVowels(s string) string {
 	vowels := []string{}
 	result := ""
-	vowelsMap := map[string]bool{
-		"a": true,
-		"A": true,
-		"e": true,
-		"E": true,
-		"i": true,
-		"I": true,
-		"o": true,
-		"O": true,
-		"u": true,
-		"U": true,
-	}
+	vowelsMap := []string{"a", "A", "e", "E", "i", "I", "o", "O", "u", "U"}
 
 	for _, v := range s {
 		if checkVowels(vowelsMap, string(v)) {
@@ -33,10 +22,11 @@ func reverseVowels(s string) string {
 	return result
 }
 
-func checkVowels(vowels map[string]bool, s string) bool {
-	if _, ok := vowels[s]; ok {
-		return true
+func checkVowels(vowels []string, s string) bool {
+	for _, v := range vowels {
+		if v == s {
+			return true
+		}
 	}
-
 	return false
 }

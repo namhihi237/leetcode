@@ -1,31 +1,28 @@
-package main
-
-import (
-	"fmt"
-)
-
 func reverseVowels(s string) string {
-	vowels := []string{}
-	result := ""
+	result := make([]byte, len(s))
 	vowelsMap := [10]string{"a", "A", "e", "E", "i", "I", "o", "O", "u", "U"}
 
-	for _, v := range s {
-		if checkVowels(vowelsMap, string(v)) {
-			vowels = append(vowels, string(v))
+	i, j := 0, len(s)-1
+	for i <= j {
+		if !checkVowels(vowelsMap, string(s[i])) {
+			result[i] = s[i]
+			i++
+			continue
 		}
+
+		if !checkVowels(vowelsMap, string(s[j])) {
+			result[j] = s[j]
+			j--
+			continue
+		}
+
+		result[i] = s[j]
+		result[j] = s[i]
+		i++
+		j--
 	}
 
-	i := len(vowels) - 1
-	for _, v := range s {
-		if checkVowels(vowelsMap, string(v)) {
-			result += vowels[i]
-			i--
-		} else {
-			result += string(v)
-		}
-	}
-
-	return result
+	return string(result)
 }
 
 func checkVowels(vowels [10]string, s string) bool {

@@ -1,7 +1,13 @@
+package main
+
+import (
+	"fmt"
+)
+
 func reverseVowels(s string) string {
 	vowels := []string{}
 	result := ""
-	vowelsMap := []string{"a", "A", "e", "E", "i", "I", "o", "O", "u", "U"}
+	vowelsMap := [10]string{"a", "A", "e", "E", "i", "I", "o", "O", "u", "U"}
 
 	for _, v := range s {
 		if checkVowels(vowelsMap, string(v)) {
@@ -22,7 +28,7 @@ func reverseVowels(s string) string {
 	return result
 }
 
-func checkVowels(vowels []string, s string) bool {
+func checkVowels(vowels [10]string, s string) bool {
 	for _, v := range vowels {
 		if v == s {
 			return true

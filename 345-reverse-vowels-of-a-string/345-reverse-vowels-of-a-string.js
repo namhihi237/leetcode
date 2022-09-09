@@ -1,16 +1,15 @@
 var reverseVowels = function (s = "") {
   let result = [];
-  const vowels = ['a', 'e', 'i', 'o', 'u'];
   let i = 0, j = s.length - 1;
 
   while (i <= j) {
-    if (!checkVowels(vowels, s[i])) {
+    if (!checkVowels(s[i])) {
       result[i] = s[i];
       i++;
       continue;
     }
 
-    if (!checkVowels(vowels, s[j])) {
+    if (!checkVowels(s[j])) {
       result[j] = s[j];
       j--;
       continue;
@@ -25,6 +24,6 @@ var reverseVowels = function (s = "") {
   return result.join('');
 };
 
-var checkVowels = (vowels, c) => {
-  return vowels.includes(c.toLowerCase())
+var checkVowels = (c) => {
+  return ['a', 'e', 'i', 'o', 'u'].includes(c?.toLowerCase())
 }

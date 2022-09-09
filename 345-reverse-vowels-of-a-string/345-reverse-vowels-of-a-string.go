@@ -15,14 +15,14 @@ func reverseVowels(s string) string {
 	}
 
 	for _, v := range s {
-		if checkVowels(vowelsMap, string(v)) {
+		if _, ok := vowelsMap[string(v)]; ok {
 			vowels = append(vowels, string(v))
 		}
 	}
 
 	i := len(vowels) - 1
 	for _, v := range s {
-		if checkVowels(vowelsMap, string(v)) {
+		if _, ok := vowelsMap[string(v)]; ok {
 			result += vowels[i]
 			i--
 		} else {
@@ -31,12 +31,4 @@ func reverseVowels(s string) string {
 	}
 
 	return result
-}
-
-func checkVowels(vowels map[string]bool, s string) bool {
-	if _, ok := vowels[s]; ok {
-		return true
-	}
-
-	return false
 }

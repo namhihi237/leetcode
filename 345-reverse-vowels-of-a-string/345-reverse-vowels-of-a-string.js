@@ -25,11 +25,5 @@ var reverseVowels = function (s = "") {
 };
 
 var checkVowels = (c) => {
-  return {
-    "a": true,
-    "e": true,
-    "i": true,
-    "o": true,
-    "u": true,
-  }.hasOwnProperty(c.toLowerCase())
+  return ['a', 'e', 'i', 'o', 'u'].includes(c?.toLowerCase())
 }
